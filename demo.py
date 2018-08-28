@@ -3,7 +3,7 @@ import time
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser(description='Add some o\'s your name!')
     parser.add_argument('name',
                         action='store',
                         help='Your name')
