@@ -1,7 +1,10 @@
 import argparse
 import time
 
+from gooey import Gooey
 
+
+@Gooey
 def main():
     parser = argparse.ArgumentParser(description='Add some o\'s your name!')
     parser.add_argument('name',

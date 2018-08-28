@@ -1,0 +1,6 @@
+Gooey==1.0.1
+Pillow==5.2.0
+psutil==5.4.7
+Pypubsub==4.0.0
+six==1.11.0
+wxPython==4.0.3
