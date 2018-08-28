@@ -1,12 +1,11 @@
-import argparse
 import time
 
-from gooey import Gooey
+from gooey import Gooey, GooeyParser
 
 
 @Gooey
 def main():
-    parser = argparse.ArgumentParser(description='Add some o\'s your name!')
+    parser = GooeyParser(description='Add some o\'s your name!')
     parser.add_argument('name',
                         action='store',
                         help='Your name')
