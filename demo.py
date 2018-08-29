@@ -22,8 +22,8 @@ def main():
         time.sleep(1)
         name += "o"
         os_added = os_added + 1
-        print(f"progress: {os_added}/{number_of_os}")
-    print(f"Here's the name with some O's!: {name}")
+        print(f"progress: {os_added}/{number_of_os}", flush=True)
+    print(f"Here's the name with some O's!: {name}", flush=True)
 
 
 if __name__ == "__main__":
