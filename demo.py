@@ -3,7 +3,10 @@ import time
 from gooey import Gooey, GooeyParser
 
 
-@Gooey
+@Gooey(
+    progress_regex=r"^progress: (\d+)/(\d+)$",
+    progress_expr="x[0] / x[1] * 100",
+)
 def main():
     parser = GooeyParser(description='Add some o\'s your name!')
     parser.add_argument('name',
@@ -19,6 +22,7 @@ def main():
         time.sleep(1)
         name += "o"
         os_added = os_added + 1
+        print(f"progress: {os_added}/{number_of_os}")
     print(f"Here's the name with some O's!: {name}")
 
 
