@@ -1,0 +1,27 @@
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.6'
+    architecture: 'x64'
+
+- script: |
+    sudo apt-get install build-essential libgtk-3-dev libgstreamer-plugins-base1.0-dev
+  displayName: 'Add GTK 3 for Linux'
+  condition: and(succeeded(), eq(variables['Agent.OS'], 'Linux'))
+
+- script: python -m pip install --upgrade pip && pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    pyinstaller -y demo.spec
+  displayName: 'Build pyInstaller Application'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)/dist'
+    archiveFile: '$(Build.SourcesDirectory)/dist.zip'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    artifactName: '$(Agent.OS)'
+    pathtoPublish: '$(Build.SourcesDirectory)/dist.zip'
